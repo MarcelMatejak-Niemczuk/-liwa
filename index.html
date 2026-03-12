@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Operacje na tablicy</title>
+</head>
+<body>
+
+<h2>Operacje na tablicy owoców</h2>
+
+<button onclick="pokaztablice()">Pokaż tablicę</button>
+<button onclick="dodajowoc()">Dodaj owoc (push)</button>
+<button onclick="usunostatni()">Usuń ostatni owoc (pop)</button>
+<button onclick="dodajnapoczatek()">Dodaj na początek (unshift)</button>
+<button onclick="usunpierwszy()">Usuń pierwszy (shift)</button>
+<button onclick="czyjestmango()">Sprawdź czy jest mango</button>
+<button onclick="sortuj()">Sortuj</button>
+<button onclick="pierwsza()">Pierwsza pozycja</button>
+<button onclick="liczba()">Liczba elementów</button>
+<button onclick="pierwszaidruga()">Pierwsza i druga</button>
+<button onclick="oddzielnielinie()">W oddzielnych liniach</button>
+
+<br><br>
+
+<input type="text" id="nowyowoc" placeholder="podaj owoc">
+
+<h3>Wynik działania:</h3>
+<div id="wynik"></div>
+
+<script>
+
+let owoce = ["jabłko","banan","śliwka","mango","gruszka"]
+
+function pokaztablice(){
+    document.getElementById("wynik").innerHTML = owoce.join(", ");
+}
+
+function dodajowoc(){
+    let nowy = document.getElementById("nowyowoc").value;
+    if(nowy){
+        owoce.push(nowy);
+        pokaztablice();
+    }
+}
+
+function usunostatni(){
+    owoce.pop();
+    pokaztablice();
+}
+
+function dodajnapoczatek(){
+    let nowy = document.getElementById("nowyowoc").value;
+    if(nowy){
+        owoce.unshift(nowy);
+        pokaztablice();
+    }
+}
+
+function usunpierwszy(){
+    owoce.shift();
+    pokaztablice();
+}
+
+function czyjestmango(){
+    if(owoce.includes("mango")){
+        document.getElementById("wynik").innerHTML = "Mango jest w tablicy";
+    } else {
+        document.getElementById("wynik").innerHTML = "Mango nie ma w tablicy";
+    }
+}
+
+function sortuj(){
+    owoce.sort();
+    pokaztablice();
+}
+
+function pierwsza(){
+    document.getElementById("wynik").innerHTML = owoce[0];
+}
+
+function liczba(){
+    document.getElementById("wynik").innerHTML = "Liczba elementów: " + owoce.length;
+}
+
+function pierwszaidruga(){
+    document.getElementById("wynik").innerHTML = owoce[0] + ", " + owoce[1];
+}
+
+function oddzielnielinie(){
+    document.getElementById("wynik").innerHTML = owoce.join("<br>");
+}
+
+</script>
+
+</body>
+</html>
